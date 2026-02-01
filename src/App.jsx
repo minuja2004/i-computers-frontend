@@ -2,20 +2,32 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Test from './components/test'
 import { ProductCard } from './components/productCard'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import AdminPage from './pages/adminPage'
+import LoginPage from './pages/loginPage'
+import RegisterPage from './pages/registerPage'
+import HomePage from './pages/homePage'
 
 function App() {
-  const [count, setCount] = useState(0)
+  return(
+  <BrowserRouter>
+    <div className="w-full min-h-screen bg-red-500" >
+      <Routes >
 
-  return (
-    <>
-      <ProductCard name="laptop" price="10,0000"  image="https://picsum.photos/id/1/200/300"/>
+        <Route path="/" element={<HomePage/>}/>
+        <Route path="/login" element={<LoginPage/>}/>
+        <Route path="/register" element={<RegisterPage/>}/>
+        <Route path="/admin" element={<AdminPage/>}/>
 
-      <ProductCard name="watch" price="40,5000"  image="https://picsum.photos/id/5/200/300"/>
+      </Routes>
+      
+    </div>
+  </BrowserRouter>
+  );
 
-      <ProductCard name="phone" price="10,1500"  image="https://picsum.photos/id/4/200/300"/>
-    </>
-  )
+  
 }
 
-export default App
+export default App;
